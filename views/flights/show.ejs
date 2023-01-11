@@ -17,6 +17,9 @@
     <div><%= flight.arrivalTime %></div>
     <div>Ontime: </div>
     <div><%= flight.ontime ? 'Yes' : 'Nope' %></div>
+    <div><a href="/flights/<%= flight._id %>/edit">
+      <button>Edit Flight</button></div>
+    </a>
   </section>
 </main>
   
