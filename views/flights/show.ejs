@@ -1,0 +1,23 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/flights/show.css" />
+<%- include('../partials/nav') %>
+
+<main>
+  <h1><%= title %></h1>
+  <section>
+    <div>Flight Number: </div>
+    <div><%= flight.flightNumber %></div>
+    <div>Origin: </div>
+    <div><%= flight.origin %></div>
+    <div>Destination: </div>
+    <div><%= flight.destination %></div>
+    <div>Departure Time: </div>
+    <div><%= flight.departureTime %></div>
+    <div>Arrival Time: </div>
+    <div><%= flight.arrivalTime %></div>
+    <div>Ontime: </div>
+    <div><%= flight.ontime ? 'Yes' : 'Nope' %></div>
+  </section>
+</main>
+  
+<%- include('../partials/footer') %>

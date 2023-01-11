@@ -1,4 +1,5 @@
 import { Flight } from '../models/flight.js'
+
 function newFlights(req,res){
   res.render("flights/new", {
     title: "Add Flight",
@@ -34,8 +35,33 @@ function index(req,res){
     res.redirect('/')
   })
 }
+function show(req, res) {
+  Flight.findById(req.params.id)
+  .then(flight => {
+    res.render('flights/show', { 
+      title: 'Flight Detail', 
+      flight: flight,
+    })    
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/")
+  })
+}
+function deleteFlight(req,res){
+  Flight.findByIdAndDelete(req.params.id)
+  .then(flight => {
+    res.redirect("/flights/index")
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/")
+  })
+}
 export{
   newFlights as new,
   create,
-  index
+  index,
+  show,
+  deleteFlight as delete
 }
