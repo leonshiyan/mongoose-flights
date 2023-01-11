@@ -18,13 +18,19 @@ const flightSchema = new Schema({
   },
   departureTime: {
     type: Date,
-    required: true
+    required: true,
+    default: function() {
+      return new Date().getFullYear()
+    }
   },
   arrivalTime: {
     type: Date,
     required: true
   },
-  ontime: Boolean,
+  ontime: { 
+    type:Boolean, 
+    default:false
+  }
 }, {
   timestamps: true
 })

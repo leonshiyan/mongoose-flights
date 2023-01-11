@@ -10,11 +10,15 @@ function create(req,res){
   
   Flight.create(req.body)
   .then(flight => {
+    // remove empty properties
+    for (let key in req.body) {
+      if (req.body[key] === '') delete req.body[key]
+    }
     res.redirect('/flights/new')
   })
   .catch(err => {
     console.log(err)
-    res.redirect('/flights/new')
+    res.redirect('/flights')
   })
 }
 function index(req,res){
