@@ -18,11 +18,10 @@ router.get("/:id/edit", flightsCtrl.edit)
 // POST /flights
 router.post('/', flightsCtrl.create)
 
-// localhost:3000/flights/:id
+// DELETE /flights/:id
 router.delete("/:id", flightsCtrl.delete)
 
-
-// localhost:3000/flights/:id
+// PUT /flights/:id
 router.put("/:id", flightsCtrl.update)
 
 export {
