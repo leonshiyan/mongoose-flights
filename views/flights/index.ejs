@@ -14,8 +14,9 @@
     <tbody>
       <% flights.sort((a, b) => new Date(a.departs) - new Date(b.departs)) %> 
       <% flights.forEach(flight => { %> 
-        <tr>
-          <td><%= flight.flightNo %></td>
+        <tr >
+          <td <%= (new Date(flight.departs) < new Date()) ? 'class=departure-date-passed' : '' %>>
+            <%= flight.flightNo %></td>
           <td><%= flight.departs %></td>
           <td><a href="/flights/<%= flight._id %>">DETAILS</a></td>
           <td>
