@@ -2,6 +2,16 @@ import mongoose from 'mongoose'
 
 // optional shortcut to the mongoose.Schema class
 const Schema = mongoose.Schema
+const ticketSchema = new Schema({
+  seat: {
+    type: String,
+    match: /[A-F][1-9]\d?/,
+    required: [true, 'Seat is required']
+  },
+  price: {type: Number, min: 0}
+}, {
+  timestamps: true
+})
 
 const flightSchema = new Schema({
   airline: {
@@ -24,6 +34,7 @@ const flightSchema = new Schema({
       return new Date().getFullYear()    
     }
   },
+  tickets:[ticketSchema]
 }, {
   timestamps: true
 })
