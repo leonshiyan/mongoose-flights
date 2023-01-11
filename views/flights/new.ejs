@@ -5,22 +5,26 @@
   <h1><%= title %></h1>
   <form id="new-form" action="/flights" method="POST">
     <label for="flight-number-input">Flight Number:</label>
-    <input type="text" name="flightNumber" id="flight-number-input">
+    <input type="text" name="flightNo" id="flight-number-input">
 
-    <label for="origin-input">Origin Place:</label>
-    <input type="text" name="origin" id="origin-input">
+    <label for="airline-select">Airline:</label>
+    <select name="airline" id="airline-select">
+      <option value="American">American</option>
+      <option value="Southwest">Southwest</option>
+      <option value="United">United</option>
+    </select>
 
-    <label for="destination-input">Destination Place:</label>
-    <input type="text" name="destination" id="destination-input">
+    <label for="airport-select">Airport:</label>
+    <select name="airport" id="airport-select">
+      <option value="AUS">AUS</option>
+      <option value="DFW">DFW</option>
+      <option value="DEN">DEN</option>
+      <option value="LAX">LAX</option>
+      <option value="SAN">SAN</option>
+    </select>
 
-    <label for="departure-time-input">Departure Time:</label>
-    <input type="datetime-local" name="departureTime" id="departure-time-input" min="2023-01-01" max="2023-01-31">
-
-    <label for="arrival-time-input">Arrival Time:</label>
-    <input type="datetime-local" name="arrivalTime" id="arrival-time-input" min="2023-01-01" max="2023-01-31">
-    
-    <label for="ontime-checkbox">Flight Ontime:</label>
-    <input type="checkbox" name="ontime" id="ontime-checkbox" checked>
+    <label for="departs-input">Departure Time:</label>
+    <input type="datetime-local" name="departs" id="departs-input" >
     <button type="submit">Add Flight</button>
   </form>
 </main>

@@ -5,18 +5,14 @@
 <main>
   <h1><%= title %></h1>
   <section>
+    <div>Airline: </div>
+    <div><%= flight.airline %></div>
+    <div>Airport: </div>
+    <div><%= flight.airport %></div>
     <div>Flight Number: </div>
-    <div><%= flight.flightNumber %></div>
-    <div>Origin: </div>
-    <div><%= flight.origin %></div>
-    <div>Destination: </div>
-    <div><%= flight.destination %></div>
+    <div><%= flight.flightNo %></div>
     <div>Departure Time: </div>
-    <div><%= flight.departureTime %></div>
-    <div>Arrival Time: </div>
-    <div><%= flight.arrivalTime %></div>
-    <div>Ontime: </div>
-    <div><%= flight.ontime ? 'Yes' : 'Nope' %></div>
+    <div><%= flight.departs %></div>
     <div><a href="/flights/<%= flight._id %>/edit">
       <button>Edit Flight</button></div>
     </a>

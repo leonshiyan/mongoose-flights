@@ -15,11 +15,11 @@ function create(req,res){
     for (let key in req.body) {
       if (req.body[key] === '') delete req.body[key]
     }
-    res.redirect('/flights/new')
+    res.redirect('/flights')
   })
   .catch(err => {
     console.log(err)
-    res.redirect('/flights')
+    res.redirect('/flights/new')
   })
 }
 function index(req,res){
@@ -51,7 +51,7 @@ function show(req, res) {
 function deleteFlight(req,res){
   Flight.findByIdAndDelete(req.params.id)
   .then(flight => {
-    res.redirect("/flights/index")
+    res.redirect("/flights")
   })
   .catch(err => {
     console.log(err)
@@ -71,11 +71,26 @@ function edit(req, res) {
     res.redirect("/")
   })
 }
+function update(req,res){
+  req.body.ontime = !!req.body.ontime
+  for (let key in req.body) {
+    if(req.body[key] === "") delete req.body[key]
+  }
+  flight.findByIdAndUpdate(req.params.id, req.body, {new: true})
+  .then(flight => {
+    res.redirect(`/flights/${flight._id}`)
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/flights")
+  })
+}
 export{
   newFlights as new,
   create,
   index,
   show,
   deleteFlight as delete,
-  edit
+  edit,
+  update
 }

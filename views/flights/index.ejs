@@ -8,14 +8,12 @@
     <thead>
       <tr>
         <th>Flight Number</th>
-        <th>On Time</th>
       </tr>
     </thead>
     <tbody>
       <% flights.forEach(flight => { %> 
         <tr>
-          <td><%= flight.flightNumber %></td>
-          <td><%= flight.ontime ?'YES':'NO' %></td>
+          <td><%= flight.flightNo %></td>
           <td><a href="/flights/<%= flight._id %>">DETAILS</a></td>
           <td>
             <form 

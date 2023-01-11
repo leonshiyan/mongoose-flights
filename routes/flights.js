@@ -4,7 +4,7 @@ import * as flightsCtrl from '../controllers/flights.js'
 const router = Router()
 
 // GET /flights/index
-router.get('/index',flightsCtrl.index)
+router.get('/',flightsCtrl.index)
 
 // GET /flights/new
 router.get('/new', flightsCtrl.new)
@@ -12,14 +12,18 @@ router.get('/new', flightsCtrl.new)
 // GET /flights/:id
 router.get('/:id', flightsCtrl.show)
 
+// localhost:3000/flights/:id/edit
+router.get("/:id/edit", flightsCtrl.edit)
+
 // POST /flights
 router.post('/', flightsCtrl.create)
 
 // localhost:3000/flights/:id
 router.delete("/:id", flightsCtrl.delete)
 
-// localhost:3000/flights/:id/edit
-router.get("/:id/edit", flightsCtrl.edit)
+
+// localhost:3000/flights/:id
+router.put("/:id", flightsCtrl.update)
 
 export {
 	router
